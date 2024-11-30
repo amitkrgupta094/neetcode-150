@@ -93,3 +93,7 @@ var searchMatrix = function(matrix, target) {
     return false;
 };
 ```
+
+
+### Time: 55 minutes
+### What needs to do? logic building, practice the core binary algorithm.
