@@ -57,3 +57,22 @@ var twoSum = function(numbers, target) {
     }
 };
 ```
+
+```js
+// Method: 2 pointers
+/**
+ * @param {number[]} numbers
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(numbers, target) {
+    let i = 0;
+    let j = numbers.length - 1;
+    while(j > i) {
+        let currSum = numbers[i] + numbers[j];
+        if(currSum === target) return [i + 1, j + 1]
+        else if(currSum < target) i = i + 1;
+        else if (currSum > target) j = j - 1;
+    }
+};
+``
