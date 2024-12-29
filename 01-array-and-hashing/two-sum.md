@@ -54,3 +54,12 @@ var twoSum = function(nums, target) {
     return -1;
 };
 ```
+
+```js
+// Using Hashmap, TC: O(n), SC: O(n)
+let indexRecord = {};
+    for(let i = 0; i < nums.length; i++){
+        if(indexRecord.hasOwnProperty(target - nums[i])) return [i, indexRecord[target - nums[i]]];
+        else indexRecord[nums[i]] = i;
+    }
+```
