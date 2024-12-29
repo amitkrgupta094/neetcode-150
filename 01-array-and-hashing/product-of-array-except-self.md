@@ -50,3 +50,51 @@ var productExceptSelf = function(nums) {
     return outputArr;
 };
 ```
+
+```JS
+// Using prefix and suffix from the hint
+// TC: O(n), SC: O(n)
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+    let outputArr = [];
+    let prefixArr = prefixProduct(nums);
+    let suffixArr = suffixProduct(nums);
+
+    for(let i = 0; i < nums.length; i++){
+        let prefixItemVal = 1;
+        let suffixItemVal = 1;
+        if(prefixArr[i-1] !== undefined) prefixItemVal = prefixArr[i-1];
+        if(suffixArr[i+1] !== undefined) suffixItemVal = suffixArr[i+1];
+        nums[i] = prefixItemVal * suffixItemVal;
+    }
+
+    return nums;
+
+
+    function suffixProduct(arr){
+        let size = arr.length;
+        let product = 1;
+        let sArr = [];
+        for(let i = size-1; i >= 0; i--) {
+            product = product * arr[i];
+            sArr[i] = product;
+        }
+        return sArr;
+    }
+
+    function prefixProduct(arr){
+        let size = arr.length;
+        let product = 1;
+        let pArr = [];
+        for(let i = 0; i < size; i++) {
+            product = product * arr[i];
+            pArr[i] = product;
+        }
+        return pArr;
+    }
+};
+```
