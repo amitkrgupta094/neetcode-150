@@ -43,6 +43,7 @@ merged: a p b q c   d
 - `word1` and `word2` consist of lowercase English letters.
 
 ```js
+// Time: 5 minutes 10 seconds
 /**
  * @param {string} word1
  * @param {string} word2
