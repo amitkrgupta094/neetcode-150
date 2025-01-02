@@ -60,3 +60,37 @@ var isPalindrome = function (s) {
     return cleanedStr === reversedCleanedStr;
 };
 ```
+
+```js
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+
+// Tc: O(length of s), Sc: O(lenght of s)
+var isPalindrome = function (s) {
+    let cleanedStr = '';
+
+    const isCharLowerCaseAlphabet = (c) => c.charCodeAt(0) >= 97 && c.charCodeAt(0) <= 122;
+    const isCharNumber = (c) => c >= '0' && c <= '9';
+
+    for (let i = 0; i < s.length; i++) {
+        let loweredCaseChar = s[i].toLowerCase();
+        if (isCharLowerCaseAlphabet(loweredCaseChar) || isCharNumber(loweredCaseChar)) {
+            cleanedStr = cleanedStr + loweredCaseChar;
+        }
+    };
+
+    let start = 0;
+    let end = cleanedStr.length -1;
+
+    while(end >= start) {
+        console.log(s[start], s[end]);
+        if(cleanedStr[start] !== cleanedStr[end]) return false;
+        start++;
+        end--;
+    }
+
+    return true;
+};
+```
