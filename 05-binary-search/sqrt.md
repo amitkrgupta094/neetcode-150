@@ -43,3 +43,31 @@ var mySqrt = function(x) {
     return i - 1;
 };
 ```
+
+
+
+```
+// TC: O(logn), SC: O(1)
+var mySqrt = function(x) {
+    let i = 0;
+    let j = x;
+    let res = -1;
+    let mid = -1;
+
+    while(i <= j) {
+        mid = Math.floor((i + j) / 2);
+        if(mid * mid === x) {
+            res = mid;
+            break;
+        }
+        else if(mid*mid > x) {
+            j = mid - 1;
+        } else {
+            res = mid;
+            i = mid + 1;
+        }
+    }
+
+    return res;
+};
+```
