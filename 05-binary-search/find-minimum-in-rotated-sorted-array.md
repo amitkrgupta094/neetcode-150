@@ -64,3 +64,37 @@ var findMin = function(nums) {
     return min;
 };
 ```
+
+
+```js
+// TC: logn, SC: O(1)
+var findMin = function(nums) {
+   let N = nums.length;
+   let start = 0;
+   let end = N - 1;
+
+
+   while(start <= end) {
+    let mid = Math.floor((start + end) / 2);
+
+    // calculate next and previous elements
+    let next = (mid + 1) % N;
+    let prev = (mid + N - 1) % N;
+
+    // This can happen if you've minm number at starting index
+    if(nums[start] <= nums[end]) return nums[start];
+
+    // check if number is lesser than both of its neighbour
+    if((nums[mid] < nums[next]) && (nums[mid] < nums[prev])) return nums[mid];
+    // if it is higher than start, meaning array is not sorted on right side
+    // hence go to that side
+    else if (nums[start] <= nums[mid] ) {
+        start = mid + 1;
+    } else {
+        // otherwise go to the left side, discard right side space
+        end = mid - 1;
+    }
+   }
+   return -1;
+};
+```
