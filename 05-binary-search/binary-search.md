@@ -27,6 +27,22 @@ Explanation: 2 does not exist in nums so return -1
 - All the integers in `nums` are **unique** .
 - `nums` is sorted in ascending order.
 
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var search = function(nums, target) {
+   for(let i = 0; i < nums.length; i++){
+        if(nums[i] > target) return -1;
+        if(nums[i] === target) return i;
+   }
+   return -1;
+};
+```
+
 ```js
 
 // TC: log(n)
