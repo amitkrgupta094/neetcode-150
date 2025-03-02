@@ -66,3 +66,21 @@ var containsDuplicate = function(nums) {
    return false;
 };
 ```
+
+
+```js
+// Using map data structure
+// TC: O(n), SC: O(n)
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function(nums) {
+    let countMap = new Map();
+    for(let i of nums) {
+        if(countMap.has(i)) return true
+        else countMap.set(i, 1)
+    }
+    return false;
+};
+```
